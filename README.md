@@ -109,14 +109,26 @@ python 2023year.py -v ./demo/1.mp4 -fw 1280 -fh 720
 - Применить сторонние веса для модели Yolo для детекции и трекинга спецтехники, результатом будет json файл с именем `result.json`
 ```
 python 2023year.py -v ./demo/1.mp4 -w yolov8s_2023.pt
-```~~~~
+```
 
 - Применить сторонние веса для модели Yolo для классификации спецтехники на предмет простоя, результатом будет json файл с именем `result.json`
 ```
 python 2023year.py -v ./demo/1.mp4 -wcl yolov8n_2023.pt
 ```
 
+## Обучение
 
-# Итоги
+```
+from ultralytics import YOLO
+model = YOLO("yolov8s.yaml")
+model = YOLO('yolov8s.pt')
+model.train(data="hack.yaml", imgsz = 1280, batch= -1, epochs=50) 
+```
+
+![img_yolo_train](./img_yolo_train.png "Обучение")
+
+![img_train_results](./img_train_results.png "Результат обучения")
+
+## Итоги
 
 Данный модуль может выступать как MVP и быть легко интегрирован в сферу видиоаналитики не только строительной отрасли, но и другие отраслей.
