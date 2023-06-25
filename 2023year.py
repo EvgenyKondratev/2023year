@@ -84,6 +84,8 @@ def main():
     cap = cv2.VideoCapture(args.video_path)
     frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
+    print(f'Frame_count: {frame_count}')
+    print(f'FPS : {fps}')
 
     outer = None
     if args.out_video_filename is not None:
