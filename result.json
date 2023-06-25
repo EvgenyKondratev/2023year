@@ -1,0 +1,104 @@
+{
+    "events": {
+        "1": {
+            "class": "подъёмный кран",
+            "inplace": [
+                {
+                    "begin": 0,
+                    "end": 119
+                }
+            ],
+            "downtime": [
+                {
+                    "begin": 0,
+                    "end": 119
+                }
+            ]
+        },
+        "2": {
+            "class": "экскаватор",
+            "inplace": [
+                {
+                    "begin": 0,
+                    "end": 119
+                }
+            ],
+            "downtime": []
+        },
+        "3": {
+            "class": "экскаватор",
+            "inplace": [
+                {
+                    "begin": 0,
+                    "end": 119
+                }
+            ],
+            "downtime": []
+        },
+        "4": {
+            "class": "подъёмный кран",
+            "inplace": [
+                {
+                    "begin": 0,
+                    "end": 119
+                }
+            ],
+            "downtime": []
+        },
+        "5": {
+            "class": "грузовой автомобиль",
+            "inplace": [
+                {
+                    "begin": 0,
+                    "end": 64
+                }
+            ],
+            "downtime": []
+        },
+        "6": {
+            "class": "трактор",
+            "inplace": [
+                {
+                    "begin": 0,
+                    "end": 119
+                }
+            ],
+            "downtime": [
+                {
+                    "begin": 81,
+                    "end": 119
+                }
+            ]
+        },
+        "7": {
+            "class": "каток",
+            "inplace": [
+                {
+                    "begin": 49,
+                    "end": 88
+                }
+            ],
+            "downtime": []
+        },
+        "9": {
+            "class": "грузовой автомобиль",
+            "inplace": [
+                {
+                    "begin": 67,
+                    "end": 94
+                }
+            ],
+            "downtime": []
+        },
+        "10": {
+            "class": "каток",
+            "inplace": [
+                {
+                    "begin": 90,
+                    "end": 119
+                }
+            ],
+            "downtime": []
+        }
+    }
+}
