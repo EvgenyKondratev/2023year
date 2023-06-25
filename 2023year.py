@@ -86,6 +86,9 @@ def main():
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     print(f'Frame_count: {frame_count}')
     print(f'FPS : {fps}')
+    if frame_count == 0:
+        cap.release()
+        return
 
     outer = None
     if args.out_video_filename is not None:
