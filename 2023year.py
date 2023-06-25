@@ -39,7 +39,8 @@ def parse_args():
     parser.add_argument("-fw", "--frame_width", type=int, default=FRAME_WIDTH, help=f"Frame width (default={FRAME_WIDTH})")
     parser.add_argument("-fh", "--frame_height", type=int, default=FRAME_HEIGHT, help=f"Frame height (default={FRAME_HEIGHT})")
     parser.add_argument("-s", "--sec", default=None, help="Sec to read (int) (default=None)")
-    parser.add_argument("-o", "--out_filename", default=None, help="Output filename (default=None)")
+    parser.add_argument("-o", "--out_video_filename", default=None, help="Output video filename (default=None)")
+    parser.add_argument("-j", "--out_json_filename", default='result.json', help="Output json filename (default=None)")
 
     args = parser.parse_args()
     return args
@@ -67,10 +68,10 @@ def main():
     args = parse_args()
 
     if args.weights is None:
-        args.weights = 'w/yolov8s_50ep_bs16.pt'
+        args.weights = 'weights/yolov8s_50ep_bs16.pt'
 
     if args.weights_cl is None:
-        args.weights_cl = 'w/yolov8n_cls.pt'
+        args.weights_cl = 'weights/yolov8n_cls.pt'
 
     if args.sec is not None:
         args.sec = int(args.sec)
@@ -85,10 +86,10 @@ def main():
     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
     outer = None
-    if args.out_filename is not None:
+    if args.out_video_filename is not None:
         # fps25 = 1
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        outer = cv2.VideoWriter(args.out_filename, fourcc, fps, (args.frame_width, args.frame_height))
+        outer = cv2.VideoWriter(args.out_video_filename, fourcc, fps, (args.frame_width, args.frame_height))
 
     if args.sec is not None:
         frame_count = min(frame_count, args.sec * fps)
@@ -162,7 +163,7 @@ def main():
     if outer is not None:
         outer.release()
 
-    with open('result.json', 'wt', encoding='utf8') as f:
+    with open(args.out_json_filename, 'wt', encoding='utf8') as f:
         json.dump({'events': json_d}, f, ensure_ascii=False)
 
 
